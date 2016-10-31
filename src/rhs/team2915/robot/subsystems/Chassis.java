@@ -17,11 +17,13 @@ public class Chassis extends Subsystem {
     public BuiltInAccelerometer accel;
     
     public Chassis(){
-    	talonLeftFront = new CANTalon(0);
-    	talonLeftRear = new CANTalon(1);
-    	talonRightFront = new CANTalon(2);
-    	talonRightRear = new CANTalon(3);
+    	talonLeftFront = new CANTalon(20);
+    	talonLeftRear = new CANTalon(21);
+    	talonRightFront = new CANTalon(22);
+    	talonRightRear = new CANTalon(23);
     	accel = new BuiltInAccelerometer();
+    	talonRightFront.setInverted(true);
+    	talonRightRear.setInverted(true);
     }
 
     public void initDefaultCommand() {
