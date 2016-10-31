@@ -36,6 +36,13 @@ public class Chassis extends Subsystem {
     	talonRightRear.set(joy.getY() + joy.getZ());
     }
     
+    public void setMotors(double leftSpeed, double rightSpeed){
+    	talonLeftFront.set(leftSpeed);
+    	talonLeftRear.set(leftSpeed);
+    	talonRightFront.set(rightSpeed);
+    	talonRightRear.set(rightSpeed);
+    }
+    
     public void stop(){
     	talonLeftFront.set(0);
     	talonLeftRear.set(0);

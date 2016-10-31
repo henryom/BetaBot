@@ -21,6 +21,7 @@ public class Robot extends IterativeRobot {
 
 	public static final Chassis chassis = new Chassis();
 	public static OI oi;
+	public static final Command autonomousCommand = new autoSequence();
 
 
     public void robotInit() {
@@ -39,7 +40,7 @@ public class Robot extends IterativeRobot {
 	
 	 /** AUTONOMOUS */
     public void autonomousInit() {
-
+    	if (autonomousCommand != null) autonomousCommand.start();
     }
 
     public void autonomousPeriodic() {
@@ -48,11 +49,7 @@ public class Robot extends IterativeRobot {
     
     /** TELEOP */
     public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        //if (autonomousCommand != null) autonomousCommand.cancel();
+        if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
     public void teleopPeriodic() {
