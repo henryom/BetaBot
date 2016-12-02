@@ -32,10 +32,11 @@ public class Chassis extends Subsystem {
     }
     
     public void drive(Joystick joy){
-    	talonLeftFront.set(joy.getY() - joy.getZ());
-    	talonLeftRear.set(joy.getY() - joy.getZ());
-    	talonRightFront.set(joy.getY() + joy.getZ());
-    	talonRightRear.set(joy.getY() + joy.getZ());
+    	//henry wtf is this its gonna destroy the transmission Xd \/ \/
+    	talonLeftFront.set(joy.getY() + joy.getX());
+    	talonLeftRear.set(joy.getY() + joy.getX());
+    	talonRightFront.set(joy.getY() - joy.getX());
+    	talonRightRear.set(joy.getY() - joy.getX());
     }
     
     public void setMotors(double leftSpeed, double rightSpeed){

@@ -4,11 +4,8 @@ package rhs.team2915.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import rhs.team2915.robot.commands.*;
 import rhs.team2915.robot.subsystems.*;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,6 +17,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final Chassis chassis = new Chassis();
+	public static final AuxMotorZero auxMotorZero = new AuxMotorZero();
+	public static final AuxMotorOne auxMotorOne = new AuxMotorOne();
 	public static OI oi;
 	public static final Command autonomousCommand = new autoSequence();
 
@@ -49,6 +48,7 @@ public class Robot extends IterativeRobot {
     
     /** TELEOP */
     public void teleopInit() {
+    	System.out.println("Teleop Enabled ***");
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 

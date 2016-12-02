@@ -1,6 +1,8 @@
 package rhs.team2915.robot;
 
-import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import rhs.team2915.robot.commands.MoveAuxOne;
+import rhs.team2915.robot.commands.MoveAuxZero;
 import edu.wpi.first.wpilibj.Joystick;
 
 
@@ -15,6 +17,26 @@ public class OI {
     // number it is.
     Joystick joystickOne = new Joystick(0);
     // Button button = new JoystickButton(stick, buttonNumber);
+   
+    
+    public OI(){
+    	JoystickButton auxZeroUp = new JoystickButton(joystickOne, 6);
+   	    JoystickButton auxZeroDown = new JoystickButton(joystickOne, 7);
+        JoystickButton auxOneUp = new JoystickButton(joystickOne, 11);
+    	JoystickButton auxOneDown = new JoystickButton(joystickOne, 10);
+    	
+    	auxZeroUp.whenPressed(new MoveAuxZero(0.2));	
+    	auxZeroUp.whenReleased(new MoveAuxZero(0));
+    	auxZeroDown.whenPressed(new MoveAuxZero(-0.2));
+    	auxZeroDown.whenReleased(new MoveAuxZero(0));
+    	
+    	auxOneUp.whenPressed(new MoveAuxOne(0.2));	
+    	auxOneUp.whenReleased(new MoveAuxOne(0));
+    	auxOneDown.whenPressed(new MoveAuxOne(-0.2));
+    	auxOneDown.whenReleased(new MoveAuxOne(0));
+    }
+        
+    
     
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
